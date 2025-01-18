@@ -1,0 +1,50 @@
+.primary-btn{
+    background-color: #2CB665 !important;
+    font-size: 15px;
+    font-weight: 500;
+}
+.primary-btn:hover{
+    background-color: #34975d !important;
+}
+
+
+
+
+
+
+/* Custom theme styles */
+.btn-primary{
+    border:  0 !important;
+}
+/* Forms theme */
+.form-label{
+    font-size: 14px;
+    font-weight: 600;
+}
+.form-control{
+    font-size: 14px !important;
+}
+.form-check-input{
+    cursor: pointer;
+}
+.form-check-input:checked{
+  background-color: #2CB665;
+  border-color: #2CB665;
+}
+.form-control:disabled{
+  cursor: not-allowed !important;
+}
+.form-error-message{
+    color: rgb(255, 39, 39);
+    font-size: 14px;
+    position: absolute;
+    bottom: -21px;
+}
+.form-label{
+  margin-bottom: 3px !important;
+}
+/* Loader styles */
+.modal-content{
+    background-color: transparent !important;
+    border: 0 !important;
+}

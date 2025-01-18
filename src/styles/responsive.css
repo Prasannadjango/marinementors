@@ -1,0 +1,102 @@
+@media screen and (min-width: 360px) and (max-width: 999px) {
+    .menu-opitions-container,.action-container{
+     display: none !important;
+    }
+    .responsive-menu-container{
+        display: block !important;
+    }
+    .container-width,.header-container {
+        width: 100% !important;
+        padding: 0 20px !important;
+       }
+       .hero-section-container{
+           padding-left: 20px !important;
+           padding-right: 20px !important;
+       }
+       .hero-section-img{
+        width: 100%;
+        padding-right: 20px !important;
+       }
+       .hero-section-img img{
+           width: 100%;
+       }
+       .hero-text {
+           font-size: 38px !important;
+       }
+       .aboutus-img img {
+           width: 100%;
+       }
+       .aboutus-section {
+           gap: 25px;
+       }
+       .getintouch-img img,.getintouch-img{
+           height: 100%;
+       }
+       .hero-section-img{
+           display: none;
+       }
+       .hero-section-container{
+           display: flex;
+           width: 100%;
+           justify-content: center;
+           align-items: center;
+           flex-direction: column;
+           align-self: self-start;
+       }
+       .hero-text{
+           width: 100% !important;
+           text-align: center;
+       }
+       .hero-section {
+           height: 450px !important;
+           min-height: 450px !important;
+       }
+}
+@media screen and (min-width: 1000px) and (max-width: 1300px) {
+    .container-width,.header-container {
+     width: 100% !important;
+     padding: 0 20px !important;
+    }
+    .hero-section-container{
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .hero-section-img{
+     width: 100%;
+     padding-right: 20px !important;
+    }
+    .hero-section-img img{
+        width: 100%;
+    }
+    .hero-text {
+        font-size: 38px !important;
+    }
+    .aboutus-img img {
+        width: 100%;
+    }
+    .aboutus-section {
+        gap: 25px;
+    }
+    .getintouch-img img,.getintouch-img{
+        height: 100%;
+    }
+    .hero-section-img{
+        display: none;
+    }
+    .hero-section-container{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        align-self: self-start;
+    }
+    .hero-text{
+        width: 100% !important;
+        text-align: center;
+    }
+    .hero-section {
+        height: 450px !important;
+        min-height: 450px !important;
+    }
+}
