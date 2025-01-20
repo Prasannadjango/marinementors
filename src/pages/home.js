@@ -3,30 +3,69 @@ import Bannerimg from "../assests/Images/Bannerimage.png";
 import Aboutusimg from "../assests/Images/aboutus.png";
 import Testimonialimg from "../assests/Images/testimonial_image.jpg";
 import Getintouchimg from "../assests/Images/Getintouch.png";
+import axios from "axios";
 import { Link } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 function Home() {
   const [selectedOption, setSelectedOption] = useState("yes");
-  const [showIndosErrorMessage, setShowIndosErrorMessage] = useState(true);
+  const [formData, setFormData] = useState({
+    indosnumber: "",
+    name: "",
+    email: "",
+    phone: "",
+    dob: ""
+  });
+  const [errors, setErrors] = useState({});
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({ ...prevState, [name]: value }));
+    setErrors(prevErrors => ({ ...prevErrors, [name]: "" }));
+  };
 
-  useEffect(() => {
-    const inputField = document.querySelector("#customField");
-    if (selectedOption === "yes") {
-      inputField.removeAttribute("disabled");
-    } else {
-      inputField.setAttribute("disabled", "disabled");
-    }
-  }, [selectedOption]);
+  const validateForm = () => {
+    const { name, email, indosnumber, phone, dob } = formData;
+    const errors = {};
+    if (dob === "") {
+      errors.dob = "Date of birth is required.";
 
-  const handleRadioChange = (event) => {
-    setSelectedOption(event.target.value);
-    if(selectedOption === "no"){
-      setShowIndosErrorMessage(showIndosErrorMessage);
     }
-    else{
-      setShowIndosErrorMessage(!showIndosErrorMessage);
+    if (phone === "") {
+      errors.phone = "Phone number is required.";
+
+    }
+    else if (!/^\d{10}$/.test(phone)) {
+      errors.phone = "Phone number must be 10 digits.";
+    }
+    if (indosnumber === "") {
+      errors.indosnumber = "Indos Number is required.";
+    }
+    else if
+      (indosnumber.length < 8) {
+      errors.indosnumber = "Indos Number must be in  8 digit.";
+    }
+    if (name === "") {
+      errors.name = "Name is required.";
+    }
+    if (email === "") {
+      errors.email = "Email is required.";
+    }
+    else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email address is invalid.";
+    }
+    return errors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length === 0) {
+      axios.post("https://your-api-endpoint.com", formData)
+        .then(response => { console.log("Data submitted successfully:", response.data); })
+        .catch(error => { console.error("Error submitting data:", error); });
+    }
+    else {
+      setErrors(formErrors);
     }
   };
 
@@ -748,206 +787,160 @@ function Home() {
                   receive Frequent updates about us and our services
                 </p>
               </div>
-              <Formik
-                initialValues={{
-                  indosNumber: "",
-                  dob: "",
-                  firstName: "",
-                  lastName: "",
-                  email: "",
-                  phoneNumber: "",
-                  message: "",
-                }}
-                validationSchema={Yup.object({
-                  indosNumber: selectedOption === "yes"
-                    ? Yup.number()
-                      .integer()
-                      .positive()
-                      .max(99999999, "Must be 8 digits")
-                      .required("Required")
-                    : Yup.number().notRequired(),
-                  dob: Yup.number().required("Required"),
-                  phoneNumber: Yup.number()
-                    .max(8, "Must be 10 numbers")
-                    .required("Required"),
-                  firstName: Yup.string()
-                    .max(15, "Must be 15 characters or less")
-                    .required("Required"),
-                  lastName: Yup.string()
-                    .max(20, "Must be 20 characters or less")
-                    .required("Required"),
-                  email: Yup.string()
-                    .email("Invalid email address")
-                    .required("Required"),
-                  message: Yup.string().required("Required"),
-                })}
-                enableReinitialize
-                onSubmit={(values, { setSubmitting }) => {
-                  console.log(values);
-                  setSubmitting(false);
-                }}
-              >
-                {({ isSubmitting, handleSubmit, values, errors, touched }) => (
-                  <Form className="mt-4">
-                    <div className="row row-cols-2 g-3">
-                      <div className="col">
-                        <label className="form-label">
-                          Do you have INDOS Number?
-                        </label>
-                        <div className="d-flex align-items-center gap-4">
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              id="yesRadio"
-                              name="selection"
-                              value="yes"
-                              checked={selectedOption === "yes"}
-                              onChange={handleRadioChange}
-                            />
-                            <label
-                              className="form-check-label"
-                              for="flexRadioDefault1"
-                            >
-                              Yes
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              id="noRadio"
-                              name="selection"
-                              value="no"
-                              checked={selectedOption === "no"}
-                              onChange={handleRadioChange}
-                            />
-                            <label
-                              className="form-check-label"
-                              for="flexRadioDefault2"
-                            >
-                              No
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col position-relative">
-                        <label className="form-label">INDOS Number</label>
-                        <Field
-                          className="form-control"
-                          type="number"
-                          placeholder="Enter INDOS Number"
-                          id="customField"
-                          name="indosNumber"
-                          disabled={selectedOption !== "yes"}
+
+              <form className="mt-4" onSubmit={handleSubmit}>
+                <div className="row row-cols-2 g-3">
+                  <div className="col">
+                    <label className="form-label">
+                      Do you have INDOS Number?
+                    </label>
+                    <div className="d-flex align-items-center gap-4">
+                      <div className="form-check">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          id="yesRadio"
+                          name="selection"
+                          value="yes"
+                          checked={selectedOption === "yes"}
 
                         />
-                        {showIndosErrorMessage &&  <ErrorMessage name="indosNumber" component="div" className="form-error-message" />} 
-                        </div>
-                      <div className="col position-relative">
-                        <label className="form-label">Date of Birth</label>
-                        <Field
-                          className="form-control"
-                          type="date"
-                          name="dob"
-                          placeholder="Choose Date"
-                        />
-                      </div>
-                      <div className="col position-relative">
-                        <label className="form-label">First Name</label>
-                        <Field
-                          className="form-control"
-                          type="text"
-                          name="firstName"
-                          placeholder="Enter First Name"
-                        />
-                        <ErrorMessage name="firstName" component="div" className="form-error-message" />
-                      </div>
-                      <div className="col position-relative">
-                        <label className="form-label">Last Name</label>
-                        <Field
-                          className="form-control"
-                          type="text"
-                          name="lastName"
-                          placeholder="Enter Last Name"
-                        />
-                        <ErrorMessage name="lastName" component="div" className="form-error-message" />
-                      </div>
-                      <div className="col position-relative">
-                        <label className="form-label">E-mail Address</label>
-                        <Field
-                          className="form-control"
-                          type="mail"
-                          name="email"
-                          placeholder="Enter E-mail Address"
-                        />
-                        <ErrorMessage name="email" component="div" className="form-error-message" />
-                      </div>
-                      <div className="col position-relative">
-                        <label className="form-label">Phone Number</label>
-                        <Field
-                          className="form-control"
-                          type="number"
-                          name="phoneNumber"
-                          placeholder="Enter Phone Number"
-                        />
-                        <ErrorMessage name="phoneNumber" component="div" className="form-error-message" />
-                      </div>
-                      <div className="col">
-                        <label className="form-label">
-                          Current Designation
-                        </label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          placeholder="Enter Current Designation"
-                        />
-                      </div>
-                      <div className="col">
-                        <label className="form-label">
-                          Location (City,Country)
-                        </label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          placeholder="Enter Location"
-                        />
-                      </div>
-                      <div className="col-12 position-relative">
-                        <label className="form-label">Message</label>
-                        <Field
-                          className="form-control"
-                          placeholder="Write a message"
-                          rows="4"
-                          name="message"
-                        />
-                        {errors.message && touched.message && (
-                          <ErrorMessage name="message" component="div" className="form-error-message" />
-                        )}
-                      </div>
-                      <div className="submit-btn">
-                        <button
-                          className="btn btn-primary primary-btn mt-4"
-                          type="submit"
-                          disabled={isSubmitting}
-                          onClick={() => {
-                            // Check if all required fields are valid
-                            const isValid = Object.keys(values).every(field =>
-                              !errors?.[field] && touched?.[field]
-                            );
-
-                            if (isValid) {
-                              handleSubmit();
-                            }
-                          }}
+                        <label
+                          className="form-check-label"
+                          for="flexRadioDefault1"
                         >
-                          Submit
-                        </button>
+                          Yes
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          id="noRadio"
+                          name="selection"
+                          value="no"
+                          checked={selectedOption === "no"}
+                        />
+                        <label
+                          className="form-check-label"
+                          for="flexRadioDefault2"
+                        >
+                          No
+                        </label>
                       </div>
                     </div>
-                  </Form>
-                )}
-              </Formik>
+                  </div>
+                  <div className="col position-relative">
+                    <label className="form-label">INDOS Number<span className="error ms-1">*</span></label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      placeholder="Enter INDOS Number"
+                      id="customField"
+                      name="indosnumber"
+                      value={formData.indosnumber}
+                      onChange={handleChange}
+                      disabled={selectedOption !== "yes"}
+                      maxLength={8}
+                    />
+                    {errors.indosnumber && <p className="error">{errors.indosnumber}</p>}
+                  </div>
+                  <div className="col position-relative">
+                    <label className="form-label">Date of Birth<span className="error ms-1">*</span></label>
+                    <input
+                      className="form-control"
+                      type="date"
+                      name="dob"
+                      placeholder="Choose Date of Birth"
+                    />
+                     {errors.dob && <p className="error">{errors.dob}</p>}
+                  </div>
+                  <div className="col position-relative">
+                    <label className="form-label">First Name<span className="error ms-1">*</span></label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Enter First Name"
+                    />
+                    {errors.name && <p className="error">{errors.name}</p>}
+                  </div>
+                  <div className="col position-relative">
+                    <label className="form-label">Last Name</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="lastName"
+                      placeholder="Enter Last Name"
+                    />
+                  </div>
+                  <div className="col position-relative">
+                    <label className="form-label">E-mail Address<span className="error ms-1">*</span></label>
+                    <input
+                      className="form-control"
+                      type="mail"
+                      name="email"
+                      placeholder="Enter E-mail Address"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    {errors.email && <p className="error">{errors.email}</p>}
+                  </div>
+                  <div className="col position-relative">
+                    <label className="form-label">Phone Number<span className="error ms-1">*</span></label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Enter Phone Number"
+                    />
+                    {errors.phone && <p className="error">{errors.phone}</p>}
+                  </div>
+                  <div className="col">
+                    <label className="form-label">
+                      Current Designation
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      placeholder="Enter Current Designation"
+                    />
+                  </div>
+                  <div className="col">
+                    <label className="form-label">
+                      Location (City,Country)
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      placeholder="Enter Location"
+                    />
+                  </div>
+                  <div className="col-12 position-relative">
+                    <label className="form-label">Message<span className="error ms-1">*</span></label>
+                    <textarea
+                      className="form-control"
+                      placeholder="Write a message"
+                      rows="4"
+                      name="message"
+                    />
+                  </div>
+                  <div className="submit-btn">
+                    <button
+                      className="btn btn-primary primary-btn mt-4"
+                      type="submit"
+
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
+
             </div>
           </div>
         </section>
