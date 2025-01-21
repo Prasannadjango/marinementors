@@ -5,10 +5,35 @@ import Testimonialimg from "../assests/Images/testimonial_image.jpg";
 import Getintouchimg from "../assests/Images/Getintouch.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Alert from 'react-bootstrap/Alert';
 import * as Yup from "yup";
 
 function Home() {
   const [selectedOption, setSelectedOption] = useState("yes");
+  const [successAlert, setSuccessAlert] = useState(false);
+  const [errorAlert, setErrorAlert] = useState(false);
+  useEffect(() => {
+    let timer;
+    if (successAlert) {
+      timer = setTimeout(() => {
+        setSuccessAlert(false);
+      }, 5000); // Hide success alert after 5 seconds
+    }
+    if (errorAlert) {
+      timer = setTimeout(() => {
+        setErrorAlert(false);
+      }, 5000); // Hide error alert after 5 seconds
+    }
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [successAlert, errorAlert]);
+
+
+
   const [formData, setFormData] = useState({
     indos_no: "",
     first_name: "",
@@ -69,8 +94,14 @@ function Home() {
           'Content-Type': 'application/json'
         }
       })
-        .then(response => { console.log("Data submitted successfully:", response.data); })
-        .catch(error => { console.error("Error submitting data:", error); });
+        .then(response => { 
+          console.log("Data submitted successfully:", response.data); 
+          setSuccessAlert(true);
+        })
+        .catch(
+          error => { console.error("Error submitting data:", error); 
+            setErrorAlert(true);
+          });
     }
     else {
       setErrors(formErrors);
@@ -781,6 +812,16 @@ function Home() {
           className="getintouch-section container-width mb-5"
           id="getintouchform"
         >
+        {successAlert && (
+         <Alert  variant="success" className="form-error-alert">
+         Successfully Submitted the Form , We will reach you soon
+        </Alert>
+        )}
+        {errorAlert && (
+         <Alert  variant="danger">
+         Error in Submitting form , Please try again
+        </Alert>
+        )}
           <div className="row row-cols-2">
             <div className="col">
               <div className="getintouch-img">

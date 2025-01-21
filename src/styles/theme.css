@@ -11,7 +11,12 @@
   color: rgb(237, 11, 11);
 font-size: 13px;
 }
-
+.form-error-alert{
+  position: fixed !important;
+  z-index: 10000;
+  top: 3%;
+  right: 33%;
+}
 
 
 
