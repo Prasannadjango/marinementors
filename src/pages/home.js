@@ -10,11 +10,15 @@ import * as Yup from "yup";
 function Home() {
   const [selectedOption, setSelectedOption] = useState("yes");
   const [formData, setFormData] = useState({
-    indosnumber: "",
-    name: "",
+    indos_no: "",
+    first_name: "",
+    last_name: "",
     email: "",
     phone: "",
-    dob: ""
+    date_of_birth: "",
+    designation: "",
+    location: "",
+    message: ""
   });
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
@@ -24,31 +28,31 @@ function Home() {
   };
 
   const validateForm = () => {
-    const { name, email, indosnumber, phone, dob } = formData;
+    const { name, email, indos_no, phone, dob, message } = formData;
     const errors = {};
     if (dob === "") {
       errors.dob = "Date of birth is required.";
-
     }
     if (phone === "") {
       errors.phone = "Phone number is required.";
-
     }
     else if (!/^\d{10}$/.test(phone)) {
       errors.phone = "Phone number must be 10 digits.";
     }
-    if (indosnumber === "") {
-      errors.indosnumber = "Indos Number is required.";
+    if (indos_no === "") {
+      errors.indos_no = "Indos Number is required.";
     }
-    else if
-      (indosnumber.length < 8) {
-      errors.indosnumber = "Indos Number must be in  8 digit.";
+    else if (indos_no.length < 8) {
+      errors.indos_no = "Indos Number must be in  8 digit.";
     }
     if (name === "") {
       errors.name = "Name is required.";
     }
     if (email === "") {
       errors.email = "Email is required.";
+    }
+    if (message === "") {
+      errors.message = "Message is required";
     }
     else if (!/\S+@\S+\.\S+/.test(email)) {
       errors.email = "Email address is invalid.";
@@ -60,7 +64,11 @@ function Home() {
     e.preventDefault();
     const formErrors = validateForm();
     if (Object.keys(formErrors).length === 0) {
-      axios.post("https://your-api-endpoint.com", formData)
+      axios.post("https://mariners-mentor-production.up.railway.app/api/misc/contact-us/", formData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
         .then(response => { console.log("Data submitted successfully:", response.data); })
         .catch(error => { console.error("Error submitting data:", error); });
     }
@@ -837,31 +845,33 @@ function Home() {
                       type="text"
                       placeholder="Enter INDOS Number"
                       id="customField"
-                      name="indosnumber"
-                      value={formData.indosnumber}
+                      name="indos_no"
+                      value={formData.indos_no}
                       onChange={handleChange}
                       disabled={selectedOption !== "yes"}
                       maxLength={8}
                     />
-                    {errors.indosnumber && <p className="error">{errors.indosnumber}</p>}
+                    {errors.indos_no && <p className="error">{errors.indos_no}</p>}
                   </div>
                   <div className="col position-relative">
                     <label className="form-label">Date of Birth<span className="error ms-1">*</span></label>
                     <input
                       className="form-control"
                       type="date"
-                      name="dob"
+                      name="date_of_birth"
+                      onChange={handleChange}
+                      value={formData.date_of_birth}
                       placeholder="Choose Date of Birth"
                     />
-                     {errors.dob && <p className="error">{errors.dob}</p>}
+                    {errors.dob && <p className="error">{errors.dob}</p>}
                   </div>
                   <div className="col position-relative">
                     <label className="form-label">First Name<span className="error ms-1">*</span></label>
                     <input
                       className="form-control"
                       type="text"
-                      name="name"
-                      value={formData.name}
+                      name="first_name"
+                      value={formData.first_name}
                       onChange={handleChange}
                       placeholder="Enter First Name"
                     />
@@ -872,7 +882,9 @@ function Home() {
                     <input
                       className="form-control"
                       type="text"
-                      name="lastName"
+                      name="last_name"
+                      value={formData.last_name}
+                      onChange={handleChange}
                       placeholder="Enter Last Name"
                     />
                   </div>
@@ -907,6 +919,9 @@ function Home() {
                     <input
                       className="form-control"
                       type="text"
+                      name="designation"
+                      value={formData.designation}
+                      onChange={handleChange}
                       placeholder="Enter Current Designation"
                     />
                   </div>
@@ -918,6 +933,9 @@ function Home() {
                       className="form-control"
                       type="text"
                       placeholder="Enter Location"
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="col-12 position-relative">
@@ -927,7 +945,10 @@ function Home() {
                       placeholder="Write a message"
                       rows="4"
                       name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                     />
+                    {errors.message && <p className="error">{errors.message}</p>}
                   </div>
                   <div className="submit-btn">
                     <button
