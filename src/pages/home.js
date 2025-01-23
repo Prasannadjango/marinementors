@@ -127,12 +127,12 @@ function Home() {
       <div className="sections-container">
         {/* About us section */}
         <section className="aboutus-section container-width mb-5" id="aboutus">
-          <div className="col-6">
+          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 about-us-img-main-container">
             <div className="aboutus-img">
               <img src={Aboutusimg} />
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div className="aboutus-section-info">
               <h4>Aboutus</h4>
               <h2 className="pt-2 pb-3 section-title">
@@ -161,7 +161,7 @@ function Home() {
           </p>
           <div className="services-card-section mt-4">
             <h2 className="service-section-title">One Time services</h2>
-            <div className="row row-cols-3 pb-4 pt-3">
+            <div className="row row-cols-xl-3 row-cols-xxl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1 pb-4 pt-3">
               <div className="col">
                 <div className="services-card">
                   <div className="service-card-header">
@@ -276,7 +276,7 @@ function Home() {
           </div>
           <div className="services-card-section mt-4">
             <h2 className="service-section-title">Repeated Services</h2>
-            <div className="row row-cols-3 pb-4 pt-3">
+            <div className="row row-cols-xl-3 row-cols-xxl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1 pb-4 pt-3">
               <div className="col">
                 <div className="services-card">
                   <div className="repeated-service-card-header">
@@ -822,8 +822,8 @@ function Home() {
          Error in Submitting form , Please try again
         </Alert>
         )}
-          <div className="row row-cols-2">
-            <div className="col">
+          <div className="row row-cols-xxl-2 row-cols-xl-1 row-cols-lg-1 row-cols-md-1  row-cols-sm-1">
+            <div className="col getintouch-img-main-container">
               <div className="getintouch-img">
                 <img src={Getintouchimg} />
               </div>

@@ -17,7 +17,9 @@ font-size: 13px;
   top: 3%;
   right: 33%;
 }
-
+.row{
+  --bs-gutter-y: 1.7rem !important;
+}
 
 
 /* Custom theme styles */
