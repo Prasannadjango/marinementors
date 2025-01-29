@@ -131,6 +131,7 @@ header {
 .hero-section-container {
     padding-top: 190px;
     padding-left: 60px;
+    height: inherit;
 }
 
 .hero-text {

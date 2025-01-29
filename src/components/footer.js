@@ -13,7 +13,7 @@ const Footer = () => {
        
 
         {/* Footer Links */}
-        <section style={{padding:"30px"}} className="pb-5">
+        <section style={{padding:"20px 10px"}} className="pb-5">
           <div className="container text-start mt-5">
             <div className="row ">
               {/* Company Info Section */}

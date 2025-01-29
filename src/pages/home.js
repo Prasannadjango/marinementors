@@ -58,10 +58,10 @@ function Home() {
       // Check if the clicked link is an anchor link
       if (event.target.hash) {
         event.preventDefault();
-  
+
         const targetId = event.target.hash;
         const targetElement = document.querySelector(targetId);
-  
+
         if (targetElement) {
           // Scroll to the element with a -50px offset
           window.scrollTo({
@@ -71,12 +71,12 @@ function Home() {
         }
       }
     };
-  
+
     // Add event listener to anchor links
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", handleAnchorClick);
     });
-  
+
     // Cleanup event listener on component unmount
     return () => {
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -84,10 +84,10 @@ function Home() {
       });
     };
   }, [window.pathname]);
-  
+
 
   const validateForm = () => {
-    const { name, email, indos_no, phone, dob, message } = formData;
+    const { first_name, email, indos_no, phone, dob, message } = formData;
     const errors = {};
     if (dob === "") {
       errors.dob = "Date of birth is required.";
@@ -104,8 +104,8 @@ function Home() {
     else if (indos_no.length < 8) {
       errors.indos_no = "Indos Number must be in  8 digit.";
     }
-    if (name === "") {
-      errors.name = "Name is required.";
+    if (first_name === "") {
+      errors.name = "First Name is required.";
     }
     if (email === "") {
       errors.email = "Email is required.";
@@ -128,12 +128,13 @@ function Home() {
           'Content-Type': 'application/json'
         }
       })
-        .then(response => { 
-          console.log("Data submitted successfully:", response.data); 
+        .then(response => {
+          console.log("Data submitted successfully:", response.data);
           setSuccessAlert(true);
         })
         .catch(
-          error => { console.error("Error submitting data:", error); 
+          error => {
+            console.error("Error submitting data:", error);
             setErrorAlert(true);
           });
     }
@@ -438,7 +439,7 @@ function Home() {
             Enquire Now
           </button>
           <div className="row row-cols-1 row-cols-md-2 mt-5 gy-4 services3">
-          <div className="col">
+            <div className="col">
               <div className="testimonial-card">
                 <div className="ratings-container">
                   <svg
@@ -845,16 +846,16 @@ function Home() {
           className="getintouch-section container-width mb-5"
           id="getintouchform"
         >
-        {successAlert && (
-         <Alert  variant="success" className="form-error-alert">
-         Successfully Submitted the Form , We will reach you soon
-        </Alert>
-        )}
-        {errorAlert && (
-         <Alert  variant="danger">
-         Error in Submitting form , Please try again
-        </Alert>
-        )}
+          {successAlert && (
+            <Alert variant="success" className="form-error-alert">
+              Successfully Submitted the Form , We will reach you soon
+            </Alert>
+          )}
+          {errorAlert && (
+            <Alert variant="danger">
+              Error in Submitting form , Please try again
+            </Alert>
+          )}
           <div className="row row-cols-xxl-2 row-cols-xl-1 row-cols-lg-1 row-cols-md-1  row-cols-sm-1">
             <div className="col getintouch-img-main-container">
               <div className="getintouch-img">
@@ -871,169 +872,169 @@ function Home() {
               </div>
 
               <form className="mt-4" onSubmit={handleSubmit}>
-  <div className="row g-3">
-    <div className="col-12 col-md-6">
-      <label className="form-label">Do you have INDOS Number?</label>
-      <div className="d-flex align-items-center gap-4">
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            id="yesRadio"
-            name="selection"
-            value="yes"
-            checked={selectedOption === "yes"}
-          />
-          <label className="form-check-label" htmlFor="yesRadio">Yes</label>
-        </div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            id="noRadio"
-            name="selection"
-            value="no"
-            checked={selectedOption === "no"}
-          />
-          <label className="form-check-label" htmlFor="noRadio">No</label>
-        </div>
-      </div>
-    </div>
+                <div className="row g-3">
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">Do you have INDOS Number?</label>
+                    <div className="d-flex align-items-center gap-4">
+                      <div className="form-check">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          id="yesRadio"
+                          name="selection"
+                          value="yes"
+                          checked={selectedOption === "yes"}
+                        />
+                        <label className="form-check-label" htmlFor="yesRadio">Yes</label>
+                      </div>
+                      <div className="form-check">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          id="noRadio"
+                          name="selection"
+                          value="no"
+                          checked={selectedOption === "no"}
+                        />
+                        <label className="form-check-label" htmlFor="noRadio">No</label>
+                      </div>
+                    </div>
+                  </div>
 
-    <div className="col-12 col-md-6">
-      <label className="form-label">
-        INDOS Number<span className="error ms-1">*</span>
-      </label>
-      <input
-        className="form-control"
-        type="text"
-        placeholder="Enter INDOS Number"
-        id="customField"
-        name="indos_no"
-        value={formData.indos_no}
-        onChange={handleChange}
-        disabled={selectedOption !== "yes"}
-        maxLength={8}
-      />
-      {errors.indos_no && <p className="error">{errors.indos_no}</p>}
-    </div>
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">
+                      INDOS Number<span className="error ms-1">*</span>
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      placeholder="Enter INDOS Number"
+                      id="customField"
+                      name="indos_no"
+                      value={formData.indos_no}
+                      onChange={handleChange}
+                      disabled={selectedOption !== "yes"}
+                      maxLength={8}
+                    />
+                    {errors.indos_no && <p className="error">{errors.indos_no}</p>}
+                  </div>
 
-    <div className="col-12 col-md-6">
-      <label className="form-label">
-        Date of Birth<span className="error ms-1">*</span>
-      </label>
-      <input
-        className="form-control"
-        type="date"
-        name="date_of_birth"
-        onChange={handleChange}
-        value={formData.date_of_birth}
-        placeholder="Choose Date of Birth"
-      />
-      {errors.dob && <p className="error">{errors.dob}</p>}
-    </div>
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">
+                      Date of Birth<span className="error ms-1">*</span>
+                    </label>
+                    <input
+                      className="form-control"
+                      type="date"
+                      name="date_of_birth"
+                      onChange={handleChange}
+                      value={formData.date_of_birth}
+                      placeholder="Choose Date of Birth"
+                    />
+                    {errors.dob && <p className="error">{errors.dob}</p>}
+                  </div>
 
-    <div className="col-12 col-md-6">
-      <label className="form-label">
-        First Name<span className="error ms-1">*</span>
-      </label>
-      <input
-        className="form-control"
-        type="text"
-        name="first_name"
-        value={formData.first_name}
-        onChange={handleChange}
-        placeholder="Enter First Name"
-      />
-      {errors.name && <p className="error">{errors.name}</p>}
-    </div>
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">
+                      First Name<span className="error ms-1">*</span>
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="first_name"
+                      value={formData.first_name}
+                      onChange={handleChange}
+                      placeholder="Enter First Name"
+                    />
+                    {errors.name && <p className="error">{errors.name}</p>}
+                  </div>
 
-    <div className="col-12 col-md-6">
-      <label className="form-label">Last Name</label>
-      <input
-        className="form-control"
-        type="text"
-        name="last_name"
-        value={formData.last_name}
-        onChange={handleChange}
-        placeholder="Enter Last Name"
-      />
-    </div>
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">Last Name</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="last_name"
+                      value={formData.last_name}
+                      onChange={handleChange}
+                      placeholder="Enter Last Name"
+                    />
+                  </div>
 
-    <div className="col-12 col-md-6">
-      <label className="form-label">
-        E-mail Address<span className="error ms-1">*</span>
-      </label>
-      <input
-        className="form-control"
-        type="email"
-        name="email"
-        placeholder="Enter E-mail Address"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      {errors.email && <p className="error">{errors.email}</p>}
-    </div>
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">
+                      E-mail Address<span className="error ms-1">*</span>
+                    </label>
+                    <input
+                      className="form-control"
+                      type="email"
+                      name="email"
+                      placeholder="Enter E-mail Address"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    {errors.email && <p className="error">{errors.email}</p>}
+                  </div>
 
-    <div className="col-12 col-md-6">
-      <label className="form-label">
-        Phone Number<span className="error ms-1">*</span>
-      </label>
-      <input
-        className="form-control"
-        type="text"
-        name="phone"
-        value={formData.phone}
-        onChange={handleChange}
-        placeholder="Enter Phone Number"
-      />
-      {errors.phone && <p className="error">{errors.phone}</p>}
-    </div>
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">
+                      Phone Number<span className="error ms-1">*</span>
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Enter Phone Number"
+                    />
+                    {errors.phone && <p className="error">{errors.phone}</p>}
+                  </div>
 
-    <div className="col-12 col-md-6">
-      <label className="form-label">Current Designation</label>
-      <input
-        className="form-control"
-        type="text"
-        name="designation"
-        value={formData.designation}
-        onChange={handleChange}
-        placeholder="Enter Current Designation"
-      />
-    </div>
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">Current Designation</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="designation"
+                      value={formData.designation}
+                      onChange={handleChange}
+                      placeholder="Enter Current Designation"
+                    />
+                  </div>
 
-    <div className="col-12 col-md-6">
-      <label className="form-label">Location (City, Country)</label>
-      <input
-        className="form-control"
-        type="text"
-        placeholder="Enter Location"
-        name="location"
-        value={formData.location}
-        onChange={handleChange}
-      />
-    </div>
+                  <div className="col-12 col-md-6 col-sm-6">
+                    <label className="form-label">Location (City, Country)</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      placeholder="Enter Location"
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-    <div className="col-12">
-      <label className="form-label">Message<span className="error ms-1">*</span></label>
-      <textarea
-        className="form-control"
-        placeholder="Write a message"
-        rows="4"
-        name="message"
-        value={formData.message}
-        onChange={handleChange}
-      />
-      {errors.message && <p className="error">{errors.message}</p>}
-    </div>
+                  <div className="col-12">
+                    <label className="form-label">Message<span className="error ms-1">*</span></label>
+                    <textarea
+                      className="form-control"
+                      placeholder="Write a message"
+                      rows="4"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                    />
+                    {errors.message && <p className="error">{errors.message}</p>}
+                  </div>
 
-    <div className="col-12 text-center">
-      <button className="btn btn-primary primary-btn mt-4" type="submit">
-        Submit
-      </button>
-    </div>
-  </div>
-</form>
+                  <div className="col-12 ">
+                    <button className="btn btn-primary primary-btn mt-4" type="submit">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
 
 
             </div>
@@ -1041,7 +1042,7 @@ function Home() {
         </section>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }
