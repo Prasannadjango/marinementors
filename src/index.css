@@ -61,10 +61,8 @@ code {
   color:black;
 }
 
-@media screen and (max-width: 768px) {
   .menu-option1{
     color:black;
-    font-size: 20px;
+    font-size: 15px;
   }
   
-}

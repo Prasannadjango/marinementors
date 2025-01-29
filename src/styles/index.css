@@ -53,20 +53,23 @@ header {
     -o-transition: all ease-out .5s;
     transition: all ease-out .5s;
 }
-.responsive-menu-container{
-    display: none ;
+
+.responsive-menu-container {
+    display: none;
 }
-.responsive-menu-container button{
-  background-color: #2CB665 !important;
-  padding: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+
+.responsive-menu-container button {
+    background-color: #2CB665 !important;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
+
 .header-scrolled {
     background: #fff !important;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
@@ -106,10 +109,11 @@ header {
     color: #2CB665;
     text-decoration: underline;
 }
-.menu-options{
+
+.menu-options {
     display: flex;
     align-items: center;
-    
+
 }
 
 /* hero-section */
@@ -446,13 +450,16 @@ header {
     color: #2CB665;
     text-decoration: underline;
 }
-.form-check-input:checked{
+
+.form-check-input:checked {
     background-color: #2CB665 !important;
     border-color: #2CB665 !important;
 }
-.form-check-input:focus{
+
+.form-check-input:focus {
     box-shadow: none !important;
 }
+
 .card {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -460,6 +467,7 @@ header {
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .badge {
     color: #000 !important;
     padding: 7px 10px !important;
