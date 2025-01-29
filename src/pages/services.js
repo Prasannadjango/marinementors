@@ -86,7 +86,7 @@ function Services() {
               </div>
             </div>
             <div>
-              <div className="d-flex  gap-2">
+              <div className="d-flex flex-column flex-sm-row gap-2 mb-4">
                 <p className="fw-bold">Show Services:</p>
                 <div class="form-check">
                   <input
@@ -147,7 +147,7 @@ function Services() {
               </div>
             </div>
           </div>
-          <div className="row row-cols-3 g-4">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             {filteredServices.map((item) => (
               <div className={`col ${selectedFilter !== 'all' && item.type !== selectedFilter ? 'd-none' : ''}`} key={item.id}>
                 <div className="services-card">

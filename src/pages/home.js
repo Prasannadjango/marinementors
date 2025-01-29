@@ -7,6 +7,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
 import * as Yup from "yup";
+import Footer from "../components/footer";
 
 function Home() {
   const [selectedOption, setSelectedOption] = useState("yes");
@@ -109,10 +110,10 @@ function Home() {
   };
 
   return (
-    <div>
-      <div className="d-flex justify-content-between hero-section mb-5">
-        <div className="hero-section-container">
-          <h1 className="hero-text">
+    <div >
+      <div className="d-flex justify-content-between hero-section w-100 mb-5  min-vh-30 min-vh-sm-3">
+        <div className="hero-section-container  mt-5 pt-5 pt-sm-4 pt-md-5 pt-lg-5 pt-xl-5">
+          <h1 className="hero-text fs-1 fw-normal fs-sm-3 " >
             Anchored in Excellence: Supporting Your Voyage in the Marine
             Industry.
           </h1>
@@ -124,7 +125,7 @@ function Home() {
           <img src={Bannerimg} />
         </div>
       </div>
-      <div className="sections-container">
+      <div className="container" >
         {/* About us section */}
         <section className="aboutus-section container-width mb-5" id="aboutus">
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 about-us-img-main-container">
@@ -134,12 +135,12 @@ function Home() {
           </div>
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div className="aboutus-section-info">
-              <h4>Aboutus</h4>
-              <h2 className="pt-2 pb-3 section-title">
+              <h4 className="fs-1" >About us</h4>
+              <h2 className="pt-2 pb-3 section-title fs-4">
                 Providing accessible, high-quality Services and Career Guidance
                 to seafarers globally
               </h2>
-              <p className="about-us-txt">
+              <p className="about-us-txt lh-sm-base lh-lg-1.5 lh-xl-2">
                 Our mission is to empower the next generation of mariners with
                 cutting-edge knowledge, practical skills, and industry insights.
                 With years of experience in the maritime sector, we've
@@ -154,14 +155,14 @@ function Home() {
           className="services-section mb-5 container-width"
           id="services"
         >
-          <h1 className="section-title">Our services</h1>
+          <h1 className="section-title text-success fs-2">Our services</h1>
           <p className="services-header-txt text-start">
             Our commitment extends to supporting career growth, providing expert
             guidance to help seafarers navigate their maritime careers.
           </p>
-          <div className="services-card-section mt-4">
+          <div className="services-card-section mt-5">
             <h2 className="service-section-title">One Time services</h2>
-            <div className="row row-cols-xl-3 row-cols-xxl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1 pb-4 pt-3">
+            <div className="row row-cols-xl-3 row-cols-xxl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1 row-cols-1 pb-4 pt-3 services3">
               <div className="col">
                 <div className="services-card">
                   <div className="service-card-header">
@@ -274,9 +275,9 @@ function Home() {
               Explore all One time services
             </Link>
           </div>
-          <div className="services-card-section mt-4">
+          <div className="services-card-section mt-5">
             <h2 className="service-section-title">Repeated Services</h2>
-            <div className="row row-cols-xl-3 row-cols-xxl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1 pb-4 pt-3">
+            <div className="row row-cols-xl-3 row-cols-xxl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1 pb-4 pt-3 services3">
               <div className="col">
                 <div className="services-card">
                   <div className="repeated-service-card-header">
@@ -393,19 +394,18 @@ function Home() {
         </section>
         {/* Testimonial section */}
         <section
-          className="testimonial-section mb-5 container-width"
+          className="testimonial-section pt-5 mb-5 container-width"
           id="testimonial"
         >
-          <h4>What Students Say About us?</h4>
-          <h2 className="section-title pt-2 mb-4">
-            "Setting sail with peace of mind - our top priority for every
-            seafarer"
+          <h4 className="fs-2 " >What Students Say About us?</h4>
+          <h2 className="section-title w-auto mt-2 mb-2 fs-5">
+            "Setting sail with peace of mind - our top priority for every seafarer"
           </h2>
           <button className="btn btn-primary primary-btn" id="enquiryButton">
             Enquire Now
           </button>
-          <div className="row row-cols-2 mt-5 gy-4">
-            <div className="col">
+          <div className="row row-cols-1 row-cols-md-2 mt-5 gy-4 services3">
+          <div className="col">
               <div className="testimonial-card">
                 <div className="ratings-container">
                   <svg
@@ -648,14 +648,14 @@ function Home() {
           </div>
         </section>
 
-        <section className="faq-section container-width mb-5">
-          <div className="row row-cols-2">
+        <section className="faq-section container-width pt-5 mb-5">
+          <div className="row row-cols-1 row-cols-md-2 ">
             <div className="col faq-txt-section">
-              <h4>What Students Frequently ask?</h4>
-              <h2 className="section-title pt-2 mb-4">
+              <h4 className="fs-2">What Students Frequently ask?</h4>
+              <h2 className="section-title pt-2 mb-3 fs-5">
                 Let's See What Students Asked about us Recently
               </h2>
-              <p>
+              <p className="text-start mb-4">
                 Duis scelerisque at lectus nec egestas. Maecenas quis placerat
                 dolor, vitae consequat mi. Etiam eleifend velit ut cursus porta.
                 Maecenas ut ipsum varius, placerat ex eget, vehicula quam. Nam
@@ -838,175 +838,177 @@ function Home() {
               </div>
 
               <form className="mt-4" onSubmit={handleSubmit}>
-                <div className="row row-cols-2 g-3">
-                  <div className="col">
-                    <label className="form-label">
-                      Do you have INDOS Number?
-                    </label>
-                    <div className="d-flex align-items-center gap-4">
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          id="yesRadio"
-                          name="selection"
-                          value="yes"
-                          checked={selectedOption === "yes"}
+  <div className="row g-3">
+    <div className="col-12 col-md-6">
+      <label className="form-label">Do you have INDOS Number?</label>
+      <div className="d-flex align-items-center gap-4">
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            id="yesRadio"
+            name="selection"
+            value="yes"
+            checked={selectedOption === "yes"}
+          />
+          <label className="form-check-label" htmlFor="yesRadio">Yes</label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            id="noRadio"
+            name="selection"
+            value="no"
+            checked={selectedOption === "no"}
+          />
+          <label className="form-check-label" htmlFor="noRadio">No</label>
+        </div>
+      </div>
+    </div>
 
-                        />
-                        <label
-                          className="form-check-label"
-                          for="flexRadioDefault1"
-                        >
-                          Yes
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          id="noRadio"
-                          name="selection"
-                          value="no"
-                          checked={selectedOption === "no"}
-                        />
-                        <label
-                          className="form-check-label"
-                          for="flexRadioDefault2"
-                        >
-                          No
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col position-relative">
-                    <label className="form-label">INDOS Number<span className="error ms-1">*</span></label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      placeholder="Enter INDOS Number"
-                      id="customField"
-                      name="indos_no"
-                      value={formData.indos_no}
-                      onChange={handleChange}
-                      disabled={selectedOption !== "yes"}
-                      maxLength={8}
-                    />
-                    {errors.indos_no && <p className="error">{errors.indos_no}</p>}
-                  </div>
-                  <div className="col position-relative">
-                    <label className="form-label">Date of Birth<span className="error ms-1">*</span></label>
-                    <input
-                      className="form-control"
-                      type="date"
-                      name="date_of_birth"
-                      onChange={handleChange}
-                      value={formData.date_of_birth}
-                      placeholder="Choose Date of Birth"
-                    />
-                    {errors.dob && <p className="error">{errors.dob}</p>}
-                  </div>
-                  <div className="col position-relative">
-                    <label className="form-label">First Name<span className="error ms-1">*</span></label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="first_name"
-                      value={formData.first_name}
-                      onChange={handleChange}
-                      placeholder="Enter First Name"
-                    />
-                    {errors.name && <p className="error">{errors.name}</p>}
-                  </div>
-                  <div className="col position-relative">
-                    <label className="form-label">Last Name</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="last_name"
-                      value={formData.last_name}
-                      onChange={handleChange}
-                      placeholder="Enter Last Name"
-                    />
-                  </div>
-                  <div className="col position-relative">
-                    <label className="form-label">E-mail Address<span className="error ms-1">*</span></label>
-                    <input
-                      className="form-control"
-                      type="mail"
-                      name="email"
-                      placeholder="Enter E-mail Address"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                    {errors.email && <p className="error">{errors.email}</p>}
-                  </div>
-                  <div className="col position-relative">
-                    <label className="form-label">Phone Number<span className="error ms-1">*</span></label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="Enter Phone Number"
-                    />
-                    {errors.phone && <p className="error">{errors.phone}</p>}
-                  </div>
-                  <div className="col">
-                    <label className="form-label">
-                      Current Designation
-                    </label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="designation"
-                      value={formData.designation}
-                      onChange={handleChange}
-                      placeholder="Enter Current Designation"
-                    />
-                  </div>
-                  <div className="col">
-                    <label className="form-label">
-                      Location (City,Country)
-                    </label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      placeholder="Enter Location"
-                      name="location"
-                      value={formData.location}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col-12 position-relative">
-                    <label className="form-label">Message<span className="error ms-1">*</span></label>
-                    <textarea
-                      className="form-control"
-                      placeholder="Write a message"
-                      rows="4"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                    />
-                    {errors.message && <p className="error">{errors.message}</p>}
-                  </div>
-                  <div className="submit-btn">
-                    <button
-                      className="btn btn-primary primary-btn mt-4"
-                      type="submit"
+    <div className="col-12 col-md-6">
+      <label className="form-label">
+        INDOS Number<span className="error ms-1">*</span>
+      </label>
+      <input
+        className="form-control"
+        type="text"
+        placeholder="Enter INDOS Number"
+        id="customField"
+        name="indos_no"
+        value={formData.indos_no}
+        onChange={handleChange}
+        disabled={selectedOption !== "yes"}
+        maxLength={8}
+      />
+      {errors.indos_no && <p className="error">{errors.indos_no}</p>}
+    </div>
 
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </form>
+    <div className="col-12 col-md-6">
+      <label className="form-label">
+        Date of Birth<span className="error ms-1">*</span>
+      </label>
+      <input
+        className="form-control"
+        type="date"
+        name="date_of_birth"
+        onChange={handleChange}
+        value={formData.date_of_birth}
+        placeholder="Choose Date of Birth"
+      />
+      {errors.dob && <p className="error">{errors.dob}</p>}
+    </div>
+
+    <div className="col-12 col-md-6">
+      <label className="form-label">
+        First Name<span className="error ms-1">*</span>
+      </label>
+      <input
+        className="form-control"
+        type="text"
+        name="first_name"
+        value={formData.first_name}
+        onChange={handleChange}
+        placeholder="Enter First Name"
+      />
+      {errors.name && <p className="error">{errors.name}</p>}
+    </div>
+
+    <div className="col-12 col-md-6">
+      <label className="form-label">Last Name</label>
+      <input
+        className="form-control"
+        type="text"
+        name="last_name"
+        value={formData.last_name}
+        onChange={handleChange}
+        placeholder="Enter Last Name"
+      />
+    </div>
+
+    <div className="col-12 col-md-6">
+      <label className="form-label">
+        E-mail Address<span className="error ms-1">*</span>
+      </label>
+      <input
+        className="form-control"
+        type="email"
+        name="email"
+        placeholder="Enter E-mail Address"
+        value={formData.email}
+        onChange={handleChange}
+      />
+      {errors.email && <p className="error">{errors.email}</p>}
+    </div>
+
+    <div className="col-12 col-md-6">
+      <label className="form-label">
+        Phone Number<span className="error ms-1">*</span>
+      </label>
+      <input
+        className="form-control"
+        type="text"
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        placeholder="Enter Phone Number"
+      />
+      {errors.phone && <p className="error">{errors.phone}</p>}
+    </div>
+
+    <div className="col-12 col-md-6">
+      <label className="form-label">Current Designation</label>
+      <input
+        className="form-control"
+        type="text"
+        name="designation"
+        value={formData.designation}
+        onChange={handleChange}
+        placeholder="Enter Current Designation"
+      />
+    </div>
+
+    <div className="col-12 col-md-6">
+      <label className="form-label">Location (City, Country)</label>
+      <input
+        className="form-control"
+        type="text"
+        placeholder="Enter Location"
+        name="location"
+        value={formData.location}
+        onChange={handleChange}
+      />
+    </div>
+
+    <div className="col-12">
+      <label className="form-label">Message<span className="error ms-1">*</span></label>
+      <textarea
+        className="form-control"
+        placeholder="Write a message"
+        rows="4"
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+      />
+      {errors.message && <p className="error">{errors.message}</p>}
+    </div>
+
+    <div className="col-12 text-center">
+      <button className="btn btn-primary primary-btn mt-4" type="submit">
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+
 
             </div>
           </div>
         </section>
       </div>
+
+      <Footer/>
     </div>
   );
 }

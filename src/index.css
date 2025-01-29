@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.services3 .col{
+  transition: transform 0.5s;
+}
+.col .services-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.col .testimonial-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+.services3 .col:hover{
+  transform: scale(1.019);
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.social-icon:hover {
+  color: #198754; /* Bootstrap's "success" green color */
+}
+
+
+.quick-links a{
+  color:black;
+}
+.quick-links a:hover{
+  color: #198754; /* Bootstrap's "success" green color */
+  transition: 0.5s;
+}
+
+.menu-option{
+  font-size: 15px;
+}

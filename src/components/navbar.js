@@ -31,9 +31,9 @@ function Navbar() {
     : "menu-options list-unstyled";
 
   return (
-    <div>
+    <div >
       <header className={headerClass}>
-        <div className="header-container">
+        <div  className="header-container">
           <Link to="/">
             <div className="logo-container">
               <img src={logo} />
@@ -42,19 +42,23 @@ function Navbar() {
           <div className="menu-opitions-container">
             <ul className={menuOptionsClass}>
               <li>
-                <a href="#aboutus"> About-us </a>
+                <a className="menu-option" href="#aboutus"> About-us </a>
               </li>
               <li>
-                <a href="#services"> Services </a>
+                <a className="menu-option" href="#services"> Services </a>
               </li>
               <li>
-                <a href="#testimonial"> Testimonial </a>
+                <a className="menu-option" href="https://marinersmentor.onlinetestpanel.com/#home-slider"> Exams </a>
               </li>
               <li>
-                <a href="#"> News Letter </a>
+                <a className="menu-option" href="#testimonial"> Testimonial </a>
+              </li>
+              
+              <li>
+                <a className="menu-option" href="#"> News Letter </a>
               </li>
               <li>
-                <a href="#"> Courses </a>
+                <a className="menu-option" href="#"> Courses </a>
               </li>
             </ul>
           </div>
