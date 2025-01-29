@@ -157,7 +157,7 @@ function Services() {
               </div>
             </div>
           </div>
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 services3">
             {filteredServices.map((item) => (
               <div
                 className={`col ${
@@ -244,7 +244,7 @@ function Services() {
               <h5>Service Details</h5>
               <p>{selectedService.description}</p>
               {/* <p>Type: {selectedService.type}</p> */}
-              
+
               {/* Add any other details from selectedService */}
             </div>
           ) : (

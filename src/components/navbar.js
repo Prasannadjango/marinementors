@@ -1,34 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom"; // Import `useLocation` from react-router-dom
 import logo from "../assests/Images/mariner mentors logo 1.png";
-import { Button, Offcanvas } from 'react-bootstrap';
-import {useNavigate}  from "react-router-dom";
+import { Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [show, setShow] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false); // State to handle sidebar visibility
   const location = useLocation(); // Get the current location (route)
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const navigate = useNavigate(); // Initialize the navigate function
 
   const handleNavigation = (e, targetId) => {
-  
     if (location.pathname !== "/") {
       // If not on the homepage, navigate to the homepage
       e.preventDefault(); // Prevent the default behavior (like refreshing the page)
       navigate("/#"+targetId); // Navigate to the home page
-      
       window.scrollTo(0, 0); // Scroll to the top of the page
-
-      // Once we're on the homepage, scroll to the target section
-      // window.setTimeout(() => {
-      //   const targetElement = document.getElementById(targetId);
-      //   if (targetElement) {
-      //     targetElement.scrollIntoView({ behavior: "smooth" });
-      //   }
-      // }, 0); // Timeout to ensure navigation happens before scrolling
     } else {
       // If already on the homepage, scroll to the section directly
       const targetElement = document.getElementById(targetId);
@@ -37,6 +25,7 @@ function Navbar() {
       }
     }
   };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -95,12 +84,12 @@ function Navbar() {
                 </a>
               </li>
               <li>
-                <a className="menu-option" href="#testimonial"    onClick={(e) => handleNavigation(e, "testimonial")} >
+                <a className="menu-option" href="#testimonial" onClick={(e) => handleNavigation(e, "testimonial")}>
                   Testimonial
                 </a>
               </li>
               <li>
-                <a className="menu-option" href="#faq-section"  onClick={(e) => handleNavigation(e, "faq-section")}>
+                <a className="menu-option" href="#faq-section" onClick={(e) => handleNavigation(e, "faq-section")}>
                   News Letter
                 </a>
               </li>
@@ -116,31 +105,126 @@ function Navbar() {
               Enquire Now
             </a>
           </div>
+
+          {/* Mobile Sidebar Button */}
           <div className="responsive-menu-container">
-            <Button onClick={handleShow}>
+            <Button onClick={() => setShowSidebar(true)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
                 height="22"
                 fill="currentColor"
-                class="bi bi-list"
+                className="bi bi-list"
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
                 />
               </svg>
             </Button>
-            <Offcanvas show={show} onHide={handleClose}>
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                Some text as placeholder. In real life you can have the elements you
-                have chosen. Like, text, images, lists, etc.
-              </Offcanvas.Body>
-            </Offcanvas>
+          </div>
+
+          {/* Sidebar */}
+          <div
+            className={`sidebar ${showSidebar ? "show-sidebar" : ""}`}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: showSidebar ? "0" : "-250px", // Sidebar visible when true
+              width: "250px",
+              height: "100%",
+              backgroundColor: "#f8f9fa",
+              transition: "left 0.3s ease-in-out", // Smooth transition for sliding effect
+              zIndex: "999",
+              padding: "20px",
+              boxShadow: "2px 0 5px rgba(0,0,0,0.2)",
+            }}
+          >
+            <button
+              className="close-btn"
+              onClick={() => setShowSidebar(false)} // Close sidebar
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                background: "transparent",
+                border: "none",
+                fontSize: "24px",
+                color: "#000",
+              }}
+            >
+              &times; {/* Close icon */}
+            </button>
+            <ul className="sidebar-links" style={{ listStyle: "none", padding: 0 }}>
+  <li style={{ marginBottom: "25px" }}>
+    <a
+      className="menu-option1"
+      href="#aboutus"
+      onClick={(e) => {
+        setShowSidebar(false); // Close sidebar after clicking
+        handleNavigation(e, "aboutus");
+      }}
+    >
+      About Us
+    </a>
+  </li>
+  <li style={{ marginBottom: "25px" }}>
+    <a
+      className="menu-option1"
+      href="#services"
+      onClick={(e) => {
+        setShowSidebar(false);
+        handleNavigation(e, "services");
+      }}
+    >
+      Services
+    </a>
+  </li>
+  <li style={{ marginBottom: "25px" }}>
+    <a
+      className="menu-option1"          
+      href="https://marinersmentor.onlinetestpanel.com/#home-slider"
+      onClick={() => setShowSidebar(false)}
+    >
+      Exams
+    </a>
+  </li>
+  <li style={{ marginBottom: "25px" }}>
+    <a
+      className="menu-option1"
+      href="#testimonial"
+      onClick={(e) => {
+        setShowSidebar(false);
+        handleNavigation(e, "testimonial");
+      }}
+    >
+      Testimonial
+    </a>
+  </li>
+  <li style={{ marginBottom: "25px" }}>
+    <a
+      className="menu-option1"
+      href="#faq-section"
+      onClick={(e) => {
+        setShowSidebar(false);
+        handleNavigation(e, "faq-section");
+      }}
+    >
+      News Letter
+    </a>
+  </li>
+  <li style={{ marginBottom: "25px" }}>
+    <a
+      className="menu-option1"
+      href="#"
+      onClick={() => setShowSidebar(false)}
+    >
+      Courses
+    </a>
+  </li>
+</ul>
+
           </div>
         </div>
       </header>

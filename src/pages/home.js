@@ -65,7 +65,7 @@ function Home() {
         if (targetElement) {
           // Scroll to the element with a -50px offset
           window.scrollTo({
-            top: targetElement.offsetTop - 130, // Adjust offset here
+            top: targetElement.offsetTop - 120, // Adjust offset here
             behavior: "smooth", // Optional: for smooth scrolling
           });
         }
