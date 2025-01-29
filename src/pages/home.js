@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Bannerimg from "../assests/Images/Bannerimage.png";
-import Aboutusimg from "../assests/Images/aboutus.png";
+import Aboutusimg from "../assests/Images/slide1.jpg";
 import Testimonialimg from "../assests/Images/testimonial_image.jpg";
 import Getintouchimg from "../assests/Images/Getintouch.png";
 import axios from "axios";
@@ -52,6 +52,39 @@ function Home() {
     setFormData(prevState => ({ ...prevState, [name]: value }));
     setErrors(prevErrors => ({ ...prevErrors, [name]: "" }));
   };
+
+  useEffect(() => {
+    const handleAnchorClick = (event) => {
+      // Check if the clicked link is an anchor link
+      if (event.target.hash) {
+        event.preventDefault();
+  
+        const targetId = event.target.hash;
+        const targetElement = document.querySelector(targetId);
+  
+        if (targetElement) {
+          // Scroll to the element with a -50px offset
+          window.scrollTo({
+            top: targetElement.offsetTop - 100, // Adjust offset here
+            behavior: "smooth", // Optional: for smooth scrolling
+          });
+        }
+      }
+    };
+  
+    // Add event listener to anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", handleAnchorClick);
+    });
+  
+    // Cleanup event listener on component unmount
+    return () => {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.removeEventListener("click", handleAnchorClick);
+      });
+    };
+  }, []);
+  
 
   const validateForm = () => {
     const { name, email, indos_no, phone, dob, message } = formData;

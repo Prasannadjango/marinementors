@@ -63,9 +63,9 @@ function Navbar() {
             </ul>
           </div>
           <div className="action-container">
-            <button className="btn btn-primary primary-btn" id="enquiryButton">
+            <a href="#getintouchform" className="btn btn-primary primary-btn" id="enquiryButton">
               Enqiure Now
-            </button>
+            </a>
           </div>
           <div className="responsive-menu-container">
             <Button onClick={handleShow}>

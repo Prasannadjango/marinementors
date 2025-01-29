@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import Loader from "../components/loader";
 import { Link } from "react-router-dom";
+import { Offcanvas, Button } from "react-bootstrap"; // Import Offcanvas and Button
+
 function Services() {
   const [searchValue, setSearchValue] = useState("");
   const [services, setServices] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState("all");
+  const [showOffcanvas, setShowOffcanvas] = useState(false); // State for Offcanvas visibility
+  const [selectedService, setSelectedService] = useState(null); // State to store the service details
+
   const serviceType = {
     "one-time": "#d0e8dd",
     renewal: "#cef4fc",
@@ -51,8 +55,14 @@ function Services() {
     service.name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
-  if (isLoading) return <Loader />;
-  if (error) return <div>Error: {error}</div>;
+  // Function to handle opening the offcanvas
+  const handleShowOffcanvas = (service) => {
+    setSelectedService(service); // Set the selected service
+    setShowOffcanvas(true); // Show the offcanvas
+  };
+
+  // Function to handle closing the offcanvas
+  const handleCloseOffcanvas = () => setShowOffcanvas(false);
 
   return (
     <>
@@ -149,14 +159,27 @@ function Services() {
           </div>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             {filteredServices.map((item) => (
-              <div className={`col ${selectedFilter !== 'all' && item.type !== selectedFilter ? 'd-none' : ''}`} key={item.id}>
+              <div
+                className={`col ${
+                  selectedFilter !== "all" && item.type !== selectedFilter
+                    ? "d-none"
+                    : ""
+                }`}
+                key={item.id}
+              >
                 <div className="services-card">
                   <div className="service-card-header">
                     <div className="d-flex align-items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="23"
+                        height="23"
+                        fill="currentColor"
+                        class="bi bi-person-fill-gear"
+                        viewBox="0 0 16 16"
+                      >
                         <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
                       </svg>
-
                     </div>
                     <div className="ms-3">
                       <span
@@ -174,7 +197,7 @@ function Services() {
                   </div>
                   <h5>{item.name}</h5>
                   <div className="service-card-action-btn">
-                    <button>
+                    <Button variant="link" onClick={() => handleShowOffcanvas(item)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="22"
@@ -188,7 +211,7 @@ function Services() {
                           d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
                         />
                       </svg>
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -196,6 +219,39 @@ function Services() {
           </div>
         </div>
       </section>
+
+      {/* Offcanvas Component */}
+      <Offcanvas
+        show={showOffcanvas}
+        onHide={handleCloseOffcanvas}
+        placement="bottom"
+        style={{
+          width: "calc(100% - 40px)", // Full width minus 40px margin on each side
+          height: "calc(100vh - 40px)", // Full height minus 40px margin from bottom
+          marginLeft: "20px", // 20px margin from left
+
+          marginRight: "20px", // 20px margin from right
+          marginBottom: "20px", // 40px margin from bottom
+          borderRadius: "10px", // 20px border radius
+        }}
+      >
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>{selectedService?.name}</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          {selectedService ? (
+            <div>
+              <h5>Service Details</h5>
+              <p>{selectedService.description}</p>
+              {/* <p>Type: {selectedService.type}</p> */}
+              
+              {/* Add any other details from selectedService */}
+            </div>
+          ) : (
+            <p>Loading service details...</p>
+          )}
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   );
 }

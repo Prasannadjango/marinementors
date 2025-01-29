@@ -47,3 +47,11 @@ code {
 .menu-option{
   font-size: 15px;
 }
+
+
+.aboutus-img img{
+  width: 580px;
+  height: 480px;
+  border-radius:19px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
