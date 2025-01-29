@@ -65,7 +65,7 @@ function Home() {
         if (targetElement) {
           // Scroll to the element with a -50px offset
           window.scrollTo({
-            top: targetElement.offsetTop - 100, // Adjust offset here
+            top: targetElement.offsetTop - 130, // Adjust offset here
             behavior: "smooth", // Optional: for smooth scrolling
           });
         }
@@ -83,7 +83,7 @@ function Home() {
         anchor.removeEventListener("click", handleAnchorClick);
       });
     };
-  }, []);
+  }, [window.pathname]);
   
 
   const validateForm = () => {
@@ -150,9 +150,9 @@ function Home() {
             Anchored in Excellence: Supporting Your Voyage in the Marine
             Industry.
           </h1>
-          <button className="btn btn-primary primary-btn mt-4">
+          <a href="#aboutus" className="btn btn-primary primary-btn mt-4">
             Explore more
-          </button>
+          </a>
         </div>
         <div className="hero-section-img">
           <img src={Bannerimg} />
@@ -681,7 +681,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="faq-section container-width pt-5 mb-5">
+        <section id="faq-section" className="faq-section container-width pt-5 mb-5">
           <div className="row row-cols-1 row-cols-md-2 ">
             <div className="col faq-txt-section">
               <h4 className="fs-2">What Students Frequently ask?</h4>
