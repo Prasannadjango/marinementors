@@ -61,6 +61,24 @@ function Services() {
     setShowOffcanvas(true); // Show the offcanvas
   };
 
+
+  const NextService = () =>{
+    if(selectedService<services.length){
+    setSelectedService(selectedService+1);
+    }
+    else{
+      console.log("index went out");
+    }
+  }
+
+  const PrevServices = () =>{
+    if(selectedService!=0){
+      setSelectedService(selectedService-1);
+    }
+    else{
+      console.log("index went out");
+    }
+  }
   // Function to handle closing the offcanvas
   const handleCloseOffcanvas = () => setShowOffcanvas(false);
 
@@ -158,7 +176,7 @@ function Services() {
             </div>
           </div>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 services3">
-            {filteredServices.map((item) => (
+            {filteredServices.map((item,index) => (
               <div
                 className={`col ${
                   selectedFilter !== "all" && item.type !== selectedFilter
@@ -197,7 +215,7 @@ function Services() {
                   </div>
                   <h5>{item.name}</h5>
                   <div className="service-card-action-btn">
-                    <Button variant="link" onClick={() => handleShowOffcanvas(item)}>
+                    <Button variant="link" onClick={() => handleShowOffcanvas(index)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="22"
@@ -237,17 +255,22 @@ function Services() {
         }}
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>{selectedService?.name}</Offcanvas.Title>
+          <Offcanvas.Title>{services[selectedService]?.name}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          {selectedService ? (
-            <div>
+          {services[selectedService] ? (
+            <div style={{height:"100%",position:"relative"}}>
               <h5>Service Details</h5>
-              <p>{selectedService.description}</p>
+              <p>{services[selectedService].description}</p>
               {/* <p>Type: {selectedService.type}</p> */}
 
               {/* Add any other details from selectedService */}
+              <div style={{width:"100%",display:"flex",justifyContent:"center",gap:"29px",alignItems:"flex-end",height:"70%"}}>
+              <button type="button" onClick={PrevServices} className={"btn btn-primary primary-btn "} disabled={selectedService === 0}>Prev</button>
+              <button onClick={NextService} className="btn btn-primary primary-btn" disabled={selectedService==services.length-1}>Next</button>
+              </div>
             </div>
+            
           ) : (
             <p>Loading service details...</p>
           )}
