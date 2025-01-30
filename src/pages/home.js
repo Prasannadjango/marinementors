@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import Footer from "../components/footer";
 
 function Home() {
-  const [selectedOption, setSelectedOption] = useState("yes");
+  const [selectedOption, setSelectedOption] = useState('option1');
   const [successAlert, setSuccessAlert] = useState(false);
   const [errorAlert, setErrorAlert] = useState(false);
   useEffect(() => {
@@ -33,6 +33,9 @@ function Home() {
     };
   }, [successAlert, errorAlert]);
 
+  const handleRadioChange = (value) => {
+    setSelectedOption(value);
+  };
 
 
   const [formData, setFormData] = useState({
@@ -87,9 +90,9 @@ function Home() {
 
 
   const validateForm = () => {
-    const { first_name, email, indos_no, phone, dob, message } = formData;
+    const { first_name, email, indos_no, phone, date_of_birth, message } = formData;
     const errors = {};
-    if (dob === "") {
+    if (date_of_birth === "") {
       errors.dob = "Date of birth is required.";
     }
     if (phone === "") {
@@ -882,8 +885,9 @@ function Home() {
                           type="radio"
                           id="yesRadio"
                           name="selection"
-                          value="yes"
-                          checked={selectedOption === "yes"}
+                          value="option1"
+                          checked={selectedOption === 'option1'}
+                          onChange={() => handleRadioChange('option1')}
                         />
                         <label className="form-check-label" htmlFor="yesRadio">Yes</label>
                       </div>
@@ -893,14 +897,15 @@ function Home() {
                           type="radio"
                           id="noRadio"
                           name="selection"
-                          value="no"
-                          checked={selectedOption === "no"}
+                          value="option2"
+                          checked={selectedOption === 'option2'}
+                          onChange={() => handleRadioChange('option2')}
                         />
                         <label className="form-check-label" htmlFor="noRadio">No</label>
                       </div>
                     </div>
                   </div>
-
+                  
                   <div className="col-12 col-md-6 col-sm-6">
                     <label className="form-label">
                       INDOS Number<span className="error ms-1">*</span>
@@ -913,12 +918,12 @@ function Home() {
                       name="indos_no"
                       value={formData.indos_no}
                       onChange={handleChange}
-                      disabled={selectedOption !== "yes"}
+                      disabled={selectedOption === 'option2'}
                       maxLength={8}
                     />
                     {errors.indos_no && <p className="error">{errors.indos_no}</p>}
                   </div>
-
+                
                   <div className="col-12 col-md-6 col-sm-6">
                     <label className="form-label">
                       Date of Birth<span className="error ms-1">*</span>

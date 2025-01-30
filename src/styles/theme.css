@@ -10,6 +10,7 @@
 .error{
   color: rgb(237, 11, 11);
 font-size: 13px;
+position: absolute;
 }
 .form-error-alert{
   position: fixed !important;

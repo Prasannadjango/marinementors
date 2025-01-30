@@ -3,7 +3,7 @@ import axios from "axios";
 import Loader from "../components/loader";
 import { Link } from "react-router-dom";
 import { Offcanvas, Button } from "react-bootstrap"; // Import Offcanvas and Button
-
+import Footer from "../components/footer";
 function Services() {
   const [searchValue, setSearchValue] = useState("");
   const [services, setServices] = useState([]);
@@ -83,8 +83,8 @@ function Services() {
 
       <section className="d-flex justify-content-center">
         <div className="container-width mb-5">
-          <div className="d-flex justify-content-between">
-            <div>
+          <div className="d-flex justify-content-between services-filters-section">
+            <div class="col-xl-3 col-xxl-3 col-md-3 col-lg-3 col-sm-6 col-12">
               <div className="col-12">
                 <input
                   type="text"
@@ -219,7 +219,8 @@ function Services() {
           </div>
         </div>
       </section>
-
+     
+     <Footer/>
       {/* Offcanvas Component */}
       <Offcanvas
         show={showOffcanvas}

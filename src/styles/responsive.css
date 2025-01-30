@@ -45,7 +45,7 @@
         -moz-border-radius: 19px;
         -ms-border-radius: 19px;
         -o-border-radius: 19px;
-}
+    }
 
     .hero-section-img {
         display: none;
@@ -134,5 +134,12 @@
 @media screen and (min-width: 360px) and (max-width: 991px) {
     .getintouch-img-main-container, .about-us-img-main-container {
         display: none;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 740px) {
+
+    .services-filters-section {
+        flex-direction: column;
     }
 }

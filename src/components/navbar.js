@@ -15,7 +15,7 @@ function Navbar() {
     if (location.pathname !== "/") {
       // If not on the homepage, navigate to the homepage
       e.preventDefault(); // Prevent the default behavior (like refreshing the page)
-      navigate("/#"+targetId); // Navigate to the home page
+      navigate("/#" + targetId); // Navigate to the home page
       window.scrollTo(0, 0); // Scroll to the top of the page
     } else {
       // If already on the homepage, scroll to the section directly
@@ -157,73 +157,78 @@ function Navbar() {
               &times; {/* Close icon */}
             </button>
             <ul className="sidebar-links" style={{ listStyle: "none", padding: 0 }}>
-  <li style={{ marginBottom: "25px" }}>
-    <a
-      className="menu-option1"
-      href="#aboutus"
-      onClick={(e) => {
-        setShowSidebar(false); // Close sidebar after clicking
-        handleNavigation(e, "aboutus");
-      }}
-    >
-      About Us
-    </a>
-  </li>
-  <li style={{ marginBottom: "25px" }}>
-    <a
-      className="menu-option1"
-      href="#services"
-      onClick={(e) => {
-        setShowSidebar(false);
-        handleNavigation(e, "services");
-      }}
-    >
-      Services
-    </a>
-  </li>
-  <li style={{ marginBottom: "25px" }}>
-    <a
-      className="menu-option1"          
-      href="https://marinersmentor.onlinetestpanel.com/#home-slider"
-      onClick={() => setShowSidebar(false)}
-    >
-      Exams
-    </a>
-  </li>
-  <li style={{ marginBottom: "25px" }}>
-    <a
-      className="menu-option1"
-      href="#testimonial"
-      onClick={(e) => {
-        setShowSidebar(false);
-        handleNavigation(e, "testimonial");
-      }}
-    >
-      Testimonial
-    </a>
-  </li>
-  <li style={{ marginBottom: "25px" }}>
-    <a
-      className="menu-option1"
-      href="#faq-section"
-      onClick={(e) => {
-        setShowSidebar(false);
-        handleNavigation(e, "faq-section");
-      }}
-    >
-      News Letter
-    </a>
-  </li>
-  <li style={{ marginBottom: "25px" }}>
-    <a
-      className="menu-option1"
-      href="#"
-      onClick={() => setShowSidebar(false)}
-    >
-      Courses
-    </a>
-  </li>
-</ul>
+              <li style={{ marginBottom: "25px" }}>
+                <a
+                  className="menu-option1"
+                  href="#aboutus"
+                  onClick={(e) => {
+                    setShowSidebar(false); // Close sidebar after clicking
+                    handleNavigation(e, "aboutus");
+                  }}
+                >
+                  About Us
+                </a>
+              </li>
+              <li style={{ marginBottom: "25px" }}>
+                <a
+                  className="menu-option1"
+                  href="#services"
+                  onClick={(e) => {
+                    setShowSidebar(false);
+                    handleNavigation(e, "services");
+                  }}
+                >
+                  Services
+                </a>
+              </li>
+              <li style={{ marginBottom: "25px" }}>
+                <a
+                  className="menu-option1"
+                  href="https://marinersmentor.onlinetestpanel.com/#home-slider"
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Exams
+                </a>
+              </li>
+              <li style={{ marginBottom: "25px" }}>
+                <a
+                  className="menu-option1"
+                  href="#testimonial"
+                  onClick={(e) => {
+                    setShowSidebar(false);
+                    handleNavigation(e, "testimonial");
+                  }}
+                >
+                  Testimonial
+                </a>
+              </li>
+              <li style={{ marginBottom: "25px" }}>
+                <a
+                  className="menu-option1"
+                  href="#faq-section"
+                  onClick={(e) => {
+                    setShowSidebar(false);
+                    handleNavigation(e, "faq-section");
+                  }}
+                >
+                  News Letter
+                </a>
+              </li>
+              <li style={{ marginBottom: "25px" }}>
+                <a
+                  className="menu-option1"
+                  href="#"
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Courses
+                </a>
+              </li>
+            </ul>
+            <div className="mt-3">
+              <a href="#getintouchform"  onClick={() => setShowSidebar(false)} className="btn btn-primary primary-btn" id="enquiryButton">
+                Enquire Now
+              </a>
+            </div>
 
           </div>
         </div>
