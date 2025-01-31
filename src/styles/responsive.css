@@ -138,6 +138,9 @@
 }
 
 @media screen and (min-width: 360px) and (max-width: 740px) {
+    .services-popup{
+        width: 90% !important;
+    }
 
     .services-filters-section {
         flex-direction: column;

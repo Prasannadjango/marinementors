@@ -1,61 +1,76 @@
-.primary-btn{
-    background-color: #2CB665 !important;
-    font-size: 15px;
-    font-weight: 500;
-}
-.primary-btn:hover{
-    background-color: #34975d !important;
+.primary-btn {
+  background-color: #2CB665 !important;
+  font-size: 15px;
+  font-weight: 500;
 }
 
-.error{
-  color: rgb(237, 11, 11);
-font-size: 13px;
-position: absolute;
+.primary-btn:hover:not(.btn:disabled) {
+  background-color: #34975d !important;
 }
-.form-error-alert{
+
+.error {
+  color: rgb(237, 11, 11);
+  font-size: 13px;
+  position: absolute;
+}
+
+.form-error-alert {
   position: fixed !important;
   z-index: 10000;
   top: 3%;
   right: 33%;
 }
-.row{
+
+.row {
   --bs-gutter-y: 1.7rem !important;
 }
 
 
 /* Custom theme styles */
-.btn-primary{
-    border:  0 !important;
+.btn-primary {
+  border: 0 !important;
 }
+
 /* Forms theme */
-.form-label{
-    font-size: 14px;
-    font-weight: 600;
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
 }
-.form-control{
-    font-size: 14px !important;
+
+.form-control {
+  font-size: 14px !important;
 }
-.form-check-input{
-    cursor: pointer;
+
+.form-check-input {
+  cursor: pointer;
 }
-.form-check-input:checked{
+
+.form-check-input:checked {
   background-color: #2CB665;
   border-color: #2CB665;
 }
-.form-control:disabled{
+
+.form-control:disabled {
   cursor: not-allowed !important;
 }
-.form-error-message{
-    color: rgb(255, 39, 39);
-    font-size: 14px;
-    position: absolute;
-    bottom: -21px;
+
+.form-error-message {
+  color: rgb(255, 39, 39);
+  font-size: 14px;
+  position: absolute;
+  bottom: -21px;
 }
-.form-label{
+
+.form-label {
   margin-bottom: 3px !important;
 }
+
 /* Loader styles */
-.modal-content{
-    background-color: transparent !important;
-    border: 0 !important;
+.modal-content {
+  background-color: transparent !important;
+  border: 0 !important;
+}
+.btn:disabled{
+ cursor: not-allowed !important;
+ pointer-events: all !important;
 }

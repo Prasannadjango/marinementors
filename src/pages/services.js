@@ -62,20 +62,20 @@ function Services() {
   };
 
 
-  const NextService = () =>{
-    if(selectedService<services.length){
-    setSelectedService(selectedService+1);
+  const NextService = () => {
+    if (selectedService < services.length) {
+      setSelectedService(selectedService + 1);
     }
-    else{
+    else {
       console.log("index went out");
     }
   }
 
-  const PrevServices = () =>{
-    if(selectedService!=0){
-      setSelectedService(selectedService-1);
+  const PrevServices = () => {
+    if (selectedService != 0) {
+      setSelectedService(selectedService - 1);
     }
-    else{
+    else {
       console.log("index went out");
     }
   }
@@ -176,13 +176,12 @@ function Services() {
             </div>
           </div>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 services3">
-            {filteredServices.map((item,index) => (
+            {filteredServices.map((item, index) => (
               <div
-                className={`col ${
-                  selectedFilter !== "all" && item.type !== selectedFilter
-                    ? "d-none"
-                    : ""
-                }`}
+                className={`col ${selectedFilter !== "all" && item.type !== selectedFilter
+                  ? "d-none"
+                  : ""
+                  }`}
                 key={item.id}
               >
                 <div className="services-card">
@@ -237,44 +236,41 @@ function Services() {
           </div>
         </div>
       </section>
-     
-     <Footer/>
+
+      <Footer />
       {/* Offcanvas Component */}
       <Offcanvas
         show={showOffcanvas}
         onHide={handleCloseOffcanvas}
-        placement="bottom"
-        style={{
-          width: "calc(100% - 40px)", // Full width minus 40px margin on each side
-          height: "calc(100vh - 40px)", // Full height minus 40px margin from bottom
-          marginLeft: "20px", // 20px margin from left
-
-          marginRight: "20px", // 20px margin from right
-          marginBottom: "20px", // 40px margin from bottom
-          borderRadius: "10px", // 20px border radius
-        }}
+        className="services-popup"
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>{services[selectedService]?.name}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           {services[selectedService] ? (
-            <div style={{height:"100%",position:"relative"}}>
-              <h5>Service Details</h5>
-              <p>{services[selectedService].description}</p>
-              {/* <p>Type: {selectedService.type}</p> */}
+            <div style={{ height: "100%", position: "relative" }}>
+              <div className="d-flex justify-content-between align-items-center">
+                <h5>Service Details</h5>
+                <span className={`badge ${services[selectedService].type}-color`}>
+                  {services[selectedService].type}
+                </span>
+              </div>
+              <p className="py-3 fs-6">{services[selectedService].description}</p>
+
 
               {/* Add any other details from selectedService */}
-              <div style={{width:"100%",display:"flex",justifyContent:"center",gap:"29px",alignItems:"flex-end",height:"70%"}}>
-              <button type="button" onClick={PrevServices} className={"btn btn-primary primary-btn "} disabled={selectedService === 0}>Prev</button>
-              <button onClick={NextService} className="btn btn-primary primary-btn" disabled={selectedService==services.length-1}>Next</button>
-              </div>
+
             </div>
-            
+
           ) : (
             <p>Loading service details...</p>
           )}
         </Offcanvas.Body>
+        <div className="d-flex gap-3 p-3 services-popup-footer">
+          <button type="button" onClick={PrevServices} className={"btn btn-primary primary-btn "} disabled={selectedService === 0}>Prev</button>
+          <button onClick={NextService} className="btn btn-primary primary-btn" disabled={selectedService == services.length - 1}>Next</button>
+        </div>
       </Offcanvas>
     </>
   );
