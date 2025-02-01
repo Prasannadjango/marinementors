@@ -149,7 +149,8 @@ function Home() {
 
   return (
     <div >
-      <div className="d-flex justify-content-between hero-section w-100 mb-5  min-vh-30 min-vh-sm-3">
+      <div className="hero-section w-100 mb-5  d-flex justify-content-center min-vh-30 min-vh-sm-3">
+        <div className="container-width d-flex justify-content-between ">
         <div className="hero-section-container  mt-5 pt-5 pt-sm-4 pt-md-5 pt-lg-5 pt-xl-5">
           <h1 className="hero-text fs-1 fw-normal fs-sm-3 " >
             Anchored in Excellence: Supporting Your Voyage in the Marine
@@ -161,6 +162,7 @@ function Home() {
         </div>
         <div className="hero-section-img">
           <img src={Bannerimg} />
+        </div>
         </div>
       </div>
       <div className="container" >
@@ -488,7 +490,7 @@ function Home() {
                   </svg>
                 </div>
                 <p className="py-4">
-                "The Marine mentors were very knowledgeable and provided valuable insights into the maritime job market. They helped me identify suitable job opportunities and guided me through the application process. The only downside was the occasional delay in response time"
+                  "The Marine mentors were very knowledgeable and provided valuable insights into the maritime job market. They helped me identify suitable job opportunities and guided me through the application process. The only downside was the occasional delay in response time"
                 </p>
                 <div className="d-flex align-items-center">
                   <div className="testimonial-img">
@@ -546,7 +548,7 @@ function Home() {
                   </svg>
                 </div>
                 <p className="py-4">
-                "I had a positive experience with the Marine mentors' consultant service. The team was attentive and responsive to my queries. They offered practical advice and helped me improve my resume, which led to multiple job offers. Great service overall!"
+                  "I had a positive experience with the Marine mentors' consultant service. The team was attentive and responsive to my queries. They offered practical advice and helped me improve my resume, which led to multiple job offers. Great service overall!"
                 </p>
                 <div className="d-flex align-items-center">
                   <div className="testimonial-img">
@@ -604,7 +606,7 @@ function Home() {
                   </svg>
                 </div>
                 <p className="py-4">
-                "Top-notch service! The Marine mentors were professional and went above and beyond to assist me with my career goals. They helped me prepare for interviews and provided excellent resources for continuous learning. I couldn't be happier with the results."
+                  "Top-notch service! The Marine mentors were professional and went above and beyond to assist me with my career goals. They helped me prepare for interviews and provided excellent resources for continuous learning. I couldn't be happier with the results."
                 </p>
                 <div className="d-flex align-items-center">
                   <div className="testimonial-img">
@@ -662,7 +664,7 @@ function Home() {
                   </svg>
                 </div>
                 <p className="py-4">
-                "I had an excellent experience with the Marine mentors consultant service. Their team was knowledgeable and provided valuable guidance throughout my job search. Thanks to their support, I secured a great position on a reputable vessel. Highly recommend!"
+                  "I had an excellent experience with the Marine mentors consultant service. Their team was knowledgeable and provided valuable guidance throughout my job search. Thanks to their support, I secured a great position on a reputable vessel. Highly recommend!"
                 </p>
                 <div className="d-flex align-items-center">
                   <div className="testimonial-img">
@@ -686,8 +688,8 @@ function Home() {
                 Let's See What Students Asked about us Recently
               </h2>
               <p className="text-start mb-4">
-               Students will ensure the services which can be supported from any where through us.
-               we will follow the students from the starting their career Transformation with us
+                Students will ensure the services which can be supported from any where through us.
+                we will follow the students from the starting their career Transformation with us
               </p>
             </div>
             <div className="col">
@@ -715,13 +717,13 @@ function Home() {
                 <Accordion.Item eventKey="3">
                   <Accordion.Header>  How can I keep updated about my Coursers Expiration?</Accordion.Header>
                   <Accordion.Body>
-                  "Our system sends automated email alerts to notify you when your courses are nearing their expiration date. You'll receive reminders well in advance, ensuring you have ample time to complete any necessary renewals or updates."
+                    "Our system sends automated email alerts to notify you when your courses are nearing their expiration date. You'll receive reminders well in advance, ensuring you have ample time to complete any necessary renewals or updates."
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="4">
                   <Accordion.Header> Can You Provide Remote Support for Consulation ?</Accordion.Header>
                   <Accordion.Body>
-                  "Yes, we offer virtual consultation services to provide you with the support you need, no matter where you are located. Our experts are available for video calls, phone consultations, and online chats to address your questions and concerns."
+                    "Yes, we offer virtual consultation services to provide you with the support you need, no matter where you are located. Our experts are available for video calls, phone consultations, and online chats to address your questions and concerns."
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
