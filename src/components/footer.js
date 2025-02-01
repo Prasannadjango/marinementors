@@ -2,18 +2,18 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    
+
     <div className="">
-        
+
       <footer
         className="text-center text-lg-start text-dark footer-container"
-         
+
       >
         {/* Social Media Section */}
-       
+
 
         {/* Footer Links */}
-        <section style={{padding:"20px 10px"}} className="pb-5">
+        <section style={{ padding: "20px 10px" }} className="pb-5">
           <div className="container text-start mt-5">
             <div className="row ">
               {/* Company Info Section */}
@@ -24,7 +24,7 @@ const Footer = () => {
                   style={{ width: "60px", backgroundColor: "#7c4dff", height: "2px" }}
                 />
                 <p>
-                Our mission is to empower the next generation of mariners with cutting-edge knowledge, practical skills, and industry insights. With years of experience in the maritime sector, we've established ourselves as trusted partners for seafarer training and professional development.
+                  Our mission is to empower the next generation of mariners with cutting-edge knowledge, practical skills, and industry insights. With years of experience in the maritime sector, we've established ourselves as trusted partners for seafarer training and professional development.
 
                 </p>
               </div>
@@ -40,7 +40,7 @@ const Footer = () => {
                 <p className='quick-links'>
                   <a href="#" >Home</a>
                 </p>
-                <p  className='quick-links'>
+                <p className='quick-links'>
                   <a href="#aboutus">About Us</a>
                 </p>
                 <p className='quick-links'>
@@ -63,24 +63,24 @@ const Footer = () => {
                 />
                 {/* Social Media Icons with Bootstrap Icons */}
                 <div className="d-flex flex-wrap justify-content-flex-start gap-2 mb-4">
-                <a href="https://facebook.com" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
-  <i className="bi bi-facebook" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
-</a>
-<a href="https://twitter.com" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
-  <i className="bi bi-twitter" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
-</a>
-<a href="https://instagram.com" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
-  <i className="bi bi-instagram" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
-</a>
-<a href="https://linkedin.com" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
-  <i className="bi bi-linkedin" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
-</a>
-<a href="https://wa.me/yourphonenumber" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
-  <i className="bi bi-whatsapp" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
-</a>
+                  <a href="https://tinyurl.com/2szzrt5a" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
+                    <i className="bi bi-facebook" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
+                  </a>
+                  <a href="https://tinyurl.com/3bte9mvs" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
+                    <i className="bi bi-youtube" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
+                  </a>
+                  <a href="https://tinyurl.com/ykv32xcb" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
+                    <i className="bi bi-instagram" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
+                  </a>
+                  <a href="https://linkedin.com" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
+                    <i className="bi bi-linkedin" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
+                  </a>
+                  <a href="https://wa.me/yourphonenumber" className="me-4" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s ease' }}>
+                    <i className="bi bi-whatsapp" style={{ fontSize: "1.5rem", color: "#343a40" }} onMouseEnter={(e) => e.target.style.color = "#198754"} onMouseLeave={(e) => e.target.style.color = "#343a40"}></i>
+                  </a>
 
 
-                
+
                 </div>
               </div>
             </div>
@@ -90,11 +90,11 @@ const Footer = () => {
         {/* Footer Copyright Section */}
         <div
           className="text-center  p-3"
-          style={{ backgroundColor: "#198754",color:"white",fontSize:"13px" }}
+          style={{ backgroundColor: "#198754", color: "white", fontSize: "13px" }}
         >
-        © 2025 Copyright : {'  '}
+          © 2025 Copyright : {'  '}
           <a className="text-white" href="https://mdbootstrap.com/">
-          Mariners Mentor
+            Mariners Mentor
           </a>
         </div>
       </footer>
