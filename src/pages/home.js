@@ -6,7 +6,6 @@ import Getintouchimg from "../assests/Images/Getintouch.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
-import * as Yup from "yup";
 import Accordion from 'react-bootstrap/Accordion';
 import Footer from "../components/footer";
 
