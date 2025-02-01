@@ -17,13 +17,11 @@ code {
   transition: transform 0.5s;
 }
 .col .services-card{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .col .testimonial-card{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .services3 .col:hover{
   transform: scale(1.019);

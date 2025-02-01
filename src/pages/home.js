@@ -7,6 +7,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
 import * as Yup from "yup";
+import Accordion from 'react-bootstrap/Accordion';
 import Footer from "../components/footer";
 
 function Home() {
@@ -172,7 +173,7 @@ function Home() {
           </div>
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div className="aboutus-section-info">
-              <h4 className="fs-1" >About us</h4>
+              <h4 className="fs-2">About us</h4>
               <h2 className="pt-2 pb-3 section-title fs-4">
                 Providing accessible, high-quality Services and Career Guidance
                 to seafarers globally
@@ -192,7 +193,7 @@ function Home() {
           className="services-section mb-5 container-width"
           id="services"
         >
-          <h1 className="section-title text-success fs-2">Our services</h1>
+          <h1 className="section-title fs-2">Our services</h1>
           <p className="services-header-txt text-start">
             Our commitment extends to supporting career growth, providing expert
             guidance to help seafarers navigate their maritime careers.
@@ -487,9 +488,7 @@ function Home() {
                   </svg>
                 </div>
                 <p className="py-4">
-                  Duis scelerisque at lectus nec egestas. Maecenas quis placerat
-                  dolor, vitae consequat mi. Etiam eleifend velit ut cursus
-                  porta.
+                "The Marine mentors were very knowledgeable and provided valuable insights into the maritime job market. They helped me identify suitable job opportunities and guided me through the application process. The only downside was the occasional delay in response time"
                 </p>
                 <div className="d-flex align-items-center">
                   <div className="testimonial-img">
@@ -547,9 +546,7 @@ function Home() {
                   </svg>
                 </div>
                 <p className="py-4">
-                  Duis scelerisque at lectus nec egestas. Maecenas quis placerat
-                  dolor, vitae consequat mi. Etiam eleifend velit ut cursus
-                  porta.
+                "I had a positive experience with the Marine mentors' consultant service. The team was attentive and responsive to my queries. They offered practical advice and helped me improve my resume, which led to multiple job offers. Great service overall!"
                 </p>
                 <div className="d-flex align-items-center">
                   <div className="testimonial-img">
@@ -607,9 +604,7 @@ function Home() {
                   </svg>
                 </div>
                 <p className="py-4">
-                  Duis scelerisque at lectus nec egestas. Maecenas quis placerat
-                  dolor, vitae consequat mi. Etiam eleifend velit ut cursus
-                  porta.
+                "Top-notch service! The Marine mentors were professional and went above and beyond to assist me with my career goals. They helped me prepare for interviews and provided excellent resources for continuous learning. I couldn't be happier with the results."
                 </p>
                 <div className="d-flex align-items-center">
                   <div className="testimonial-img">
@@ -667,9 +662,7 @@ function Home() {
                   </svg>
                 </div>
                 <p className="py-4">
-                  Duis scelerisque at lectus nec egestas. Maecenas quis placerat
-                  dolor, vitae consequat mi. Etiam eleifend velit ut cursus
-                  porta.
+                "I had an excellent experience with the Marine mentors consultant service. Their team was knowledgeable and provided valuable guidance throughout my job search. Thanks to their support, I secured a great position on a reputable vessel. Highly recommend!"
                 </p>
                 <div className="d-flex align-items-center">
                   <div className="testimonial-img">
@@ -693,154 +686,45 @@ function Home() {
                 Let's See What Students Asked about us Recently
               </h2>
               <p className="text-start mb-4">
-                Duis scelerisque at lectus nec egestas. Maecenas quis placerat
-                dolor, vitae consequat mi. Etiam eleifend velit ut cursus porta.
-                Maecenas ut ipsum varius, placerat ex eget, vehicula quam. Nam
-                mollis molestie blandit. Donec odio eros, accumsan sed rhoncus
-                porttitor,
+               Students will ensure the services which can be supported from any where through us.
+               we will follow the students from the starting their career Transformation with us
               </p>
             </div>
             <div className="col">
-              <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      What kind of coaching is available to help advance my
-                      career?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    className="accordion-collapse collapse show"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                      <p>
-                        Duis scelerisque at lectus nec egestas. Maecenas quis
-                        placerat dolor, vitae consequat mi. Etiam eleifend velit
-                        ut cursus porta.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      What is the typical career path for someone starting as a
-                      seafarer?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseTwo"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                      <p>
-                        Duis scelerisque at lectus nec egestas. Maecenas quis
-                        placerat dolor, vitae consequat mi. Etiam eleifend velit
-                        ut cursus porta.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      What training courses does the company offer for career
-                      development?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseThree"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                      <p>
-                        Duis scelerisque at lectus nec egestas. Maecenas quis
-                        placerat dolor, vitae consequat mi. Etiam eleifend velit
-                        ut cursus porta.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseFour"
-                      aria-expanded="false"
-                      aria-controls="collapseFour"
-                    >
-                      How can I keep updated about my Coursers Expiration?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseFour"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                      <p>
-                        Duis scelerisque at lectus nec egestas. Maecenas quis
-                        placerat dolor, vitae consequat mi. Etiam eleifend velit
-                        ut cursus porta.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseFive"
-                      aria-expanded="false"
-                      aria-controls="collapseFive"
-                    >
-                      Can You Provide Remote Support for Consulation ?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseFive"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                      <p>
-                        Duis scelerisque at lectus nec egestas. Maecenas quis
-                        placerat dolor, vitae consequat mi. Etiam eleifend velit
-                        ut cursus porta.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header> What kind of coaching is available to help advance my
+                    career?</Accordion.Header>
+                  <Accordion.Body>
+                    Career transition coaching supports individuals who are looking to change careers or industries. Coaches assist with resume building, interview preparation, and job search strategies, ensuring a smooth and successful transition."
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>  What is the typical career path for someone starting as a
+                    seafarer?</Accordion.Header>
+                  <Accordion.Body>
+                    "The typical career path for a seafarer starting as a deck cadet includes several stages. After gaining experience and completing necessary certifications, a deck cadet can be promoted to Third Officer, then Second Officer, First Officer, and ultimately Captain. Each step involves increased responsibilities, including navigation, cargo handling, and crew management."
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                  <Accordion.Header>  What training courses does the company offer for career
+                    development?</Accordion.Header>
+                  <Accordion.Body>Our Seafeares Essentials course is designed to develop your leadership skills, focusing on areas such as effective communication, decision-making, and team management. This course prepares you for higher-level roles within the company."
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                  <Accordion.Header>  How can I keep updated about my Coursers Expiration?</Accordion.Header>
+                  <Accordion.Body>
+                  "Our system sends automated email alerts to notify you when your courses are nearing their expiration date. You'll receive reminders well in advance, ensuring you have ample time to complete any necessary renewals or updates."
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4">
+                  <Accordion.Header> Can You Provide Remote Support for Consulation ?</Accordion.Header>
+                  <Accordion.Body>
+                  "Yes, we offer virtual consultation services to provide you with the support you need, no matter where you are located. Our experts are available for video calls, phone consultations, and online chats to address your questions and concerns."
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </div>
           </div>
         </section>
@@ -905,7 +789,7 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="col-12 col-md-6 col-sm-6">
                     <label className="form-label">
                       INDOS Number<span className="error ms-1">*</span>
@@ -923,7 +807,7 @@ function Home() {
                     />
                     {errors.indos_no && <p className="error">{errors.indos_no}</p>}
                   </div>
-                
+
                   <div className="col-12 col-md-6 col-sm-6">
                     <label className="form-label">
                       Date of Birth<span className="error ms-1">*</span>

@@ -6,8 +6,8 @@ const Footer = () => {
     <div className="">
         
       <footer
-        className="text-center text-lg-start text-dark"
-        style={{ backgroundColor: "#ECEFF1" }}
+        className="text-center text-lg-start text-dark footer-container"
+         
       >
         {/* Social Media Section */}
        
