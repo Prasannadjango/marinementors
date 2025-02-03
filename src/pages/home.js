@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Bannerimg from "../assests/Images/Bannerimage.png";
 import Aboutusimg from "../assests/Images/slide1.jpg";
 import Testimonialimg from "../assests/Images/testimonial_image.jpg";
-import Getintouchimg from "../assests/Images/Getintouch.png";
+import Getintouchimg from "../assests/Images/cruise-ship-miami.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
