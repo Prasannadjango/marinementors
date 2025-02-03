@@ -487,7 +487,7 @@ header {
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    width: 50%;
+    width: 70% !important;
     max-height: 90vh !important;
     border-radius: 15px !important;
     background-color: #fff;

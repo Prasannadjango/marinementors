@@ -164,13 +164,14 @@ function Home() {
         </div>
         </div>
       </div>
-      <div className="container" >
+       <main className="d-flex justify-content-center">
+       <div className="container-width" >
         {/* About us section */}
-        <section className="aboutus-section container-width mb-5" id="aboutus">
+        <section className="aboutus-section container-width mb-5 gap-5" id="aboutus">
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 about-us-img-main-container">
-            <div className="aboutus-img">
-              <img src={Aboutusimg} />
-            </div>
+          
+              <img src={Aboutusimg} className="w-100" />
+           
           </div>
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div className="aboutus-section-info">
@@ -931,6 +932,7 @@ function Home() {
           </div>
         </section>
       </div>
+       </main>
 
       <Footer />
     </div>

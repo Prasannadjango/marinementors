@@ -243,6 +243,7 @@ function Services() {
         show={showOffcanvas}
         onHide={handleCloseOffcanvas}
         className="services-popup"
+    
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>{services[selectedService]?.name}</Offcanvas.Title>
