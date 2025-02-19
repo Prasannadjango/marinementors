@@ -1,11 +1,11 @@
 /* Exteranl Imports */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @import "theme.css";
 @import "responsive.css";
 
 /* Global Declarations */
 body, * {
-    font-family: "Inter", serif;
+    font-family: "Lexend", serif;
     font-optical-sizing: auto;
 }
 
@@ -150,7 +150,7 @@ header {
 
 .aboutus-section-info h4, .testimonial-section h4, .faq-txt-section h4, .services-section h1 {
     color: #2CB665;
-    font-size: 24px;
+    font-size: 26px !important;
     font-weight: 600;
 }
 

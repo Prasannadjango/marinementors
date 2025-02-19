@@ -13,8 +13,8 @@ const Footer = () => {
 
 
         {/* Footer Links */}
-        <section style={{ padding: "20px 10px" }} className="pb-5">
-          <div className="container text-start mt-5">
+        <section style={{ padding: "20px 10px" }} className="pb-5 d-flex justify-content-center">
+          <div className="container-width text-start mt-5">
             <div className="row ">
               {/* Company Info Section */}
               <div className="col-12 col-md-12 col-lg-4 col-xl-6 mx-auto mb-4">

@@ -437,13 +437,16 @@ function Home() {
           className="testimonial-section pt-5 mb-5 container-width"
           id="testimonial"
         >
-          <h4 className="fs-2 " >What Students Say About us?</h4>
-          <h2 className="section-title w-auto mt-2 mb-2 fs-5">
+         <div className="d-flex justify-content-center align-items-center flex-column">
+         <h4 className="fs-2 " >Reviews</h4>
+          <h6 className="section-title w-auto mt-2 mb-2 fs-5 my-3">What students say about us?</h6>
+          <h6 className="section-title fs-5 text-secondary fw-medium">
             "Setting sail with peace of mind - our top priority for every seafarer"
-          </h2>
-          <button className="btn btn-primary primary-btn" id="enquiryButton">
+          </h6>
+          <button className="btn btn-primary primary-btn mt-3" id="enquiryButton">
             Enquire Now
           </button>
+         </div>
           <div className="row row-cols-1 row-cols-md-2 mt-5 gy-4 services3">
             <div className="col">
               <div className="testimonial-card">
